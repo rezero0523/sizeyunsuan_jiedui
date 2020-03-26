@@ -1,4 +1,4 @@
-package å››åˆ™è¿ç®—;
+package ËÄÔòÔËËã;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,12 +6,15 @@ import java.util.Scanner;
 public class producer {
 public static void main(String arg[])
 {
-	int answer;//å­˜å‚¨ç­”æ¡ˆ
-	int success;//å‡ºé¢˜åˆ¤æ–­æ ‡å¿—
+	int answer;//´æ´¢´ğ°¸
+	int success;//³öÌâÅĞ¶Ï±êÖ¾
+	int t_answer=0;//´ğ¶ÔµÄÌâÄ¿×ÜÊı
+	int left;
+	int right;
 	@SuppressWarnings("resource")
 	Scanner scanner=new Scanner(System.in);
 	Random random=new Random();
-	System.out.println("è¯·è¾“å…¥è¦å‡ºçš„é¢˜ç›®ä¸ªæ•°ï¼š");
+	System.out.println("ÇëÊäÈëÒª³öµÄÌâÄ¿¸öÊı£º");
 	int p_number=scanner.nextInt();
 	for(int i=0;i<p_number;i++)
 	{
@@ -21,61 +24,82 @@ public static void main(String arg[])
 			do{
 			int left1=random.nextInt(101);
 			int right1=random.nextInt(101);
-			System.out.println(left1+"+"+right1+"=");
-			answer=left1+right1;
+			left=left1;
+			right=right1;
+			answer=left+right;
 			}while(answer>100);
-			System.out.println("è¯·å›ç­”ï¼š");
+			System.out.println(left+"+"+right+"=");
+			System.out.println("Çë»Ø´ğ£º");
 			int u_answer1=scanner.nextInt();
 			if(u_answer1==answer)
-			System.out.println("ç­”æ¡ˆæ­£ç¡®");
+			{
+				System.out.println("´ğ°¸ÕıÈ·");
+				t_answer++;
+			}
 			else 
-			System.out.println("ç­”æ¡ˆé”™è¯¯");
+			System.out.println("´ğ°¸´íÎó");
 			break;
 		case 2:
 			do{
 			int left2=random.nextInt(101);
 			int right2=random.nextInt(101);
-			System.out.println(left2+"-"+right2+"=");
-			answer=left2-right2;
+			left=left2;
+			right=right2;
+			answer=left-right;
 			}while(answer<=0);
-			System.out.println("è¯·å›ç­”ï¼š");
+			System.out.println(left+"-"+right+"=");
+			System.out.println("Çë»Ø´ğ£º");
 			int u_answer2=scanner.nextInt();
 			if(u_answer2==answer)
-			System.out.println("ç­”æ¡ˆæ­£ç¡®");
+			{
+			System.out.println("´ğ°¸ÕıÈ·");
+			t_answer++;
+			}
 			else 
-			System.out.println("ç­”æ¡ˆé”™è¯¯");
+			System.out.println("´ğ°¸´íÎó");
 			break;
 		case 3:
 			do{
 			int left3=random.nextInt(101);
 			int right3=random.nextInt(101);
-			System.out.println(left3+"*"+right3+"=");
-			answer=left3*right3;
+			left=left3;
+			right=right3;
+			answer=left*right;
 			}while(answer>100);
-			System.out.println("è¯·å›ç­”ï¼š");
+			System.out.println(left+"*"+right+"=");
+			System.out.println("Çë»Ø´ğ£º");
 			int u_answer3=scanner.nextInt();
 			if(u_answer3==answer)
-			System.out.println("ç­”æ¡ˆæ­£ç¡®");
+			{
+			System.out.println("´ğ°¸ÕıÈ·");
+			t_answer++;
+			}
 			else 
-			System.out.println("ç­”æ¡ˆé”™è¯¯");
+			System.out.println("´ğ°¸´íÎó");
 			break;
 		case 4:
 			do{
 			int left4=random.nextInt(101);
 			int right4=random.nextInt(101);
-			System.out.println(left4+"/"+right4+"=");
 			success=left4%right4;
-			answer=left4/right4;
+			left=left4;
+			right=right4;
+			answer=left/right4;
 			}while(success!=0);
-			System.out.println("è¯·å›ç­”ï¼š");
+			System.out.println(left+"/"+right+"=");
+			System.out.println("Çë»Ø´ğ£º");
 			int u_answer4=scanner.nextInt();
 			if(u_answer4==answer)
-			System.out.println("ç­”æ¡ˆæ­£ç¡®");
+			{
+			System.out.println("´ğ°¸ÕıÈ·");
+			t_answer++;
+			}
 			else 
-			System.out.println("ç­”æ¡ˆé”™è¯¯");
+			System.out.println("´ğ°¸´íÎó");
 			break;
 		}
-		
 	}
+	System.out.println("ÄúµÄµÃ·ÖÊÇ"+t_answer*100/p_number);
+	t_answer=0;
 }
 }
