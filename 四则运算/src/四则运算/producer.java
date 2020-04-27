@@ -11,6 +11,7 @@ public static void main(String arg[])
 	int t_answer=0;//答对的题目总数
 	int left;
 	int right;
+	int u_answer;
 	@SuppressWarnings("resource")
 	Scanner scanner=new Scanner(System.in);
 	Random random=new Random();
@@ -22,16 +23,14 @@ public static void main(String arg[])
 		switch (r) {
 		case 1:
 			do{
-			int left1=random.nextInt(101);
-			int right1=random.nextInt(101);
-			left=left1;
-			right=right1;
+			left=random.nextInt(101);
+			right=random.nextInt(101);
 			answer=left+right;
 			}while(answer>100);
 			System.out.println(left+"+"+right+"=");
 			System.out.println("请回答：");
-			int u_answer1=scanner.nextInt();
-			if(u_answer1==answer)
+			u_answer=scanner.nextInt();
+			if(u_answer==answer)
 			{
 				System.out.println("答案正确");
 				t_answer++;
@@ -41,16 +40,14 @@ public static void main(String arg[])
 			break;
 		case 2:
 			do{
-			int left2=random.nextInt(101);
-			int right2=random.nextInt(101);
-			left=left2;
-			right=right2;
+			left=random.nextInt(101);
+			right=random.nextInt(101);
 			answer=left-right;
 			}while(answer<=0);
 			System.out.println(left+"-"+right+"=");
 			System.out.println("请回答：");
-			int u_answer2=scanner.nextInt();
-			if(u_answer2==answer)
+			u_answer=scanner.nextInt();
+			if(u_answer==answer)
 			{
 			System.out.println("答案正确");
 			t_answer++;
@@ -60,16 +57,14 @@ public static void main(String arg[])
 			break;
 		case 3:
 			do{
-			int left3=random.nextInt(101);
-			int right3=random.nextInt(101);
-			left=left3;
-			right=right3;
+			left=random.nextInt(101);
+			right=random.nextInt(101);
 			answer=left*right;
 			}while(answer>100);
 			System.out.println(left+"*"+right+"=");
 			System.out.println("请回答：");
-			int u_answer3=scanner.nextInt();
-			if(u_answer3==answer)
+			u_answer=scanner.nextInt();
+			if(u_answer==answer)
 			{
 			System.out.println("答案正确");
 			t_answer++;
@@ -79,17 +74,15 @@ public static void main(String arg[])
 			break;
 		case 4:
 			do{
-			int left4=random.nextInt(101);
-			int right4=random.nextInt(101);
-			success=left4%right4;
-			left=left4;
-			right=right4;
-			answer=left/right4;
+			left=random.nextInt(101);
+			right=1+random.nextInt(101);
+			success=left%right;
+			answer=left/right;
 			}while(success!=0);
 			System.out.println(left+"/"+right+"=");
 			System.out.println("请回答：");
-			int u_answer4=scanner.nextInt();
-			if(u_answer4==answer)
+			u_answer=scanner.nextInt();
+			if(u_answer==answer)
 			{
 			System.out.println("答案正确");
 			t_answer++;
