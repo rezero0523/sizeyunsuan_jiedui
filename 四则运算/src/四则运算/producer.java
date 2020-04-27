@@ -16,12 +16,13 @@ public static void main(String arg[])
 	Scanner scanner=new Scanner(System.in);
 	Random random=new Random();
 	System.out.println("请输入要出的题目个数：");
-	int p_number=scanner.nextInt();
+	int p_number=scanner.nextInt();/*输入的出题数目*/
 	for(int i=0;i<p_number;i++)
 	{
-		int r=random.nextInt(4)+1;
+		int r=random.nextInt(4)+1;/*随机式子类型判断*/
 		switch (r) {
 		case 1:
+			/*产生加法式*/
 			do{
 			left=random.nextInt(101);
 			right=random.nextInt(101);
@@ -39,6 +40,7 @@ public static void main(String arg[])
 			System.out.println("答案错误");
 			break;
 		case 2:
+			/*产生减法式*/
 			do{
 			left=random.nextInt(101);
 			right=random.nextInt(101);
@@ -56,6 +58,7 @@ public static void main(String arg[])
 			System.out.println("答案错误");
 			break;
 		case 3:
+			/*产生乘法式*/
 			do{
 			left=random.nextInt(101);
 			right=random.nextInt(101);
@@ -73,6 +76,7 @@ public static void main(String arg[])
 			System.out.println("答案错误");
 			break;
 		case 4:
+			/*产生除法式*/
 			do{
 			left=random.nextInt(101);
 			right=1+random.nextInt(101);
@@ -92,7 +96,7 @@ public static void main(String arg[])
 			break;
 		}
 	}
-	System.out.println("您的得分是"+t_answer*100/p_number);
+	System.out.println("您的得分是"+t_answer*100/p_number);/*计算并打印得分*/
 	t_answer=0;
 }
 }
