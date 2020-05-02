@@ -4,14 +4,86 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class producer {
-public static void main(String arg[])
+
+//答案校验模块
+static void check(int answer,int t_answer)
+{   
+	@SuppressWarnings("resource")
+	Scanner scanner=new Scanner(System.in);
+    int u_answer;
+    System.out.println("请回答：");
+    u_answer=scanner.nextInt();
+	if(u_answer==answer)
+	{
+		System.out.println("答案正确");
+		t_answer++;
+	}
+	else 
+	System.out.println("答案错误");	
+}
+
+//加法式产生
+static void p_add(int answer)
 {
-	int answer;//存储答案
-	int success;//出题判断标志
-	int t_answer=0;//答对的题目总数
 	int left;
 	int right;
-	int u_answer;
+	Random random=new Random();
+	do{
+		left=random.nextInt(101);
+		right=random.nextInt(101);
+		answer=left+right;
+		}while(answer>100);
+		System.out.println(left+"+"+right+"=");
+}
+
+//减法式产生
+static void p_sub(int answer)
+{
+	int left;
+	int right;
+	Random random=new Random();
+	do{
+		left=random.nextInt(101);
+		right=random.nextInt(101);
+		answer=left-right;
+		}while(answer<=0);
+		System.out.println(left+"-"+right+"=");
+}
+
+//乘法式产生
+static void p_mul(int answer)
+{
+	int left;
+	int right;
+	Random random=new Random();
+	do{
+		left=random.nextInt(101);
+		right=random.nextInt(101);
+		answer=left*right;
+		}while(answer>100);
+		System.out.println(left+"*"+right+"=");
+}
+
+//除法式产生
+static void p_div(int answer)
+{
+	int success;//出题判断标志
+	int left;
+	int right;
+	Random random=new Random();
+	do{
+		left=random.nextInt(101);
+		right=1+random.nextInt(101);
+		success=left%right;
+		answer=left/right;
+		}while(success!=0);
+		System.out.println(left+"/"+right+"=");
+}
+
+public static void main(String arg[])
+{
+	int answer = 0 ;//存储答案
+	int t_answer=0;//答对的题目总数
 	@SuppressWarnings("resource")
 	Scanner scanner=new Scanner(System.in);
 	Random random=new Random();
@@ -23,76 +95,23 @@ public static void main(String arg[])
 		switch (r) {
 		case 1:
 			/*产生加法式*/
-			do{
-			left=random.nextInt(101);
-			right=random.nextInt(101);
-			answer=left+right;
-			}while(answer>100);
-			System.out.println(left+"+"+right+"=");
-			System.out.println("请回答：");
-			u_answer=scanner.nextInt();
-			if(u_answer==answer)
-			{
-				System.out.println("答案正确");
-				t_answer++;
-			}
-			else 
-			System.out.println("答案错误");
+			p_add(answer);
+			check(answer,t_answer);
 			break;
 		case 2:
 			/*产生减法式*/
-			do{
-			left=random.nextInt(101);
-			right=random.nextInt(101);
-			answer=left-right;
-			}while(answer<=0);
-			System.out.println(left+"-"+right+"=");
-			System.out.println("请回答：");
-			u_answer=scanner.nextInt();
-			if(u_answer==answer)
-			{
-			System.out.println("答案正确");
-			t_answer++;
-			}
-			else 
-			System.out.println("答案错误");
+			p_sub(answer);
+			check(answer,t_answer);
 			break;
 		case 3:
 			/*产生乘法式*/
-			do{
-			left=random.nextInt(101);
-			right=random.nextInt(101);
-			answer=left*right;
-			}while(answer>100);
-			System.out.println(left+"*"+right+"=");
-			System.out.println("请回答：");
-			u_answer=scanner.nextInt();
-			if(u_answer==answer)
-			{
-			System.out.println("答案正确");
-			t_answer++;
-			}
-			else 
-			System.out.println("答案错误");
+			p_mul(answer);
+			check(answer,t_answer);
 			break;
 		case 4:
 			/*产生除法式*/
-			do{
-			left=random.nextInt(101);
-			right=1+random.nextInt(101);
-			success=left%right;
-			answer=left/right;
-			}while(success!=0);
-			System.out.println(left+"/"+right+"=");
-			System.out.println("请回答：");
-			u_answer=scanner.nextInt();
-			if(u_answer==answer)
-			{
-			System.out.println("答案正确");
-			t_answer++;
-			}
-			else 
-			System.out.println("答案错误");
+			p_div(answer);
+			check(answer,t_answer);
 			break;
 		}
 	}
